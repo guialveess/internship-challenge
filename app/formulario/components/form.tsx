@@ -23,17 +23,23 @@ import {
 import { cn } from "../../lib/utils";
 import { toast } from "sonner";
 
+
 const schema = z.object({
   nome: z
     .string()
     .min(3, "Nome é obrigatório")
-    .max(50, "Nome deve ter no máximo 50 caracteres"),
-  email: z.string().email("Email inválido").min(5, "Email é obrigatório"),
+    .max(50, "Nome deve ter no máximo 50 caracteres")
+    .nonempty("Nome é obrigatório"),
+  email: z
+    .string()
+    .email("Email inválido")
+    .min(5, "Email é obrigatório")
+    .nonempty("Email é obrigatório"), 
 });
 
 type FormData = {
-  nome: string;
-  email: string;
+  nome?: string;
+  email?: string;
 };
 
 type FormularioProps = {
