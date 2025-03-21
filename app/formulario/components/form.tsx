@@ -3,7 +3,6 @@
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ArrowUpRight } from "lucide-react";
 import axios from "axios";
 import {
   Card,
@@ -20,9 +19,9 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { cn } from "../../lib/utils";
 import { toast } from "sonner";
-
+import Button from "@/components/button";
+import { ArrowUpRight } from "lucide-react";
 
 const schema = z.object({
   nome: z
@@ -34,7 +33,7 @@ const schema = z.object({
     .string()
     .email("Email inválido")
     .min(5, "Email é obrigatório")
-    .nonempty("Email é obrigatório"), 
+    .nonempty("Email é obrigatório"),
 });
 
 type FormData = {
@@ -63,7 +62,6 @@ const Formulario = ({ onSubmitSuccess }: FormularioProps) => {
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       await axios.post("/api/formulario", data);
-      toast.success("Formulário enviado com sucesso!");
       onSubmitSuccess();
     } catch (error) {
       console.error("Erro ao enviar formulário:", error);
@@ -123,19 +121,10 @@ const Formulario = ({ onSubmitSuccess }: FormularioProps) => {
                 )}
               />
 
-              <button
-                type="submit"
-                className={cn(
-                  "w-full px-4 py-3 rounded-xl text-sm font-medium",
-                  "bg-indigo-600 text-white",
-                  "hover:bg-indigo-700",
-                  "transition-colors duration-300",
-                  "flex items-center justify-center gap-2"
-                )}
-              >
+             
+              <Button type="submit" icon={<ArrowUpRight className="w-4 h-4" />}>
                 Enviar
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Button>
             </form>
           </CardContent>
           <CardFooter className="flex justify-between"></CardFooter>
