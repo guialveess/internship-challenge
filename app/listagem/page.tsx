@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import Container from "@/components/container";
+import Listagem from "@/components/listagem";
 import { motion } from "framer-motion";
 import Button from "@/components/button";
+import Container from "@/components/container";
 
 interface Item {
   id: number;
@@ -50,31 +50,7 @@ export default function ListagemPage() {
   return (
     <Container>
       <div className="flex flex-col justify-center items-center min-h-screen mx-auto max-w-lg">
-        <div className="relative max-w-full overflow-auto rounded-md border bg-background">
-          <div className="overflow-x-auto">
-            <Table aria-label="Listagem de Itens">
-              <thead>
-                <tr>
-                  <th className="py-2 px-4">ID</th>
-                  <th className="py-2 px-4">Nome</th>
-                  <th className="py-2 px-4">Email</th>
-                </tr>
-              </thead>
-              <TableBody>
-                {itens.map((item) => (
-                  <TableRow
-                    key={item.id}
-                    className="hover:bg-transparent [&>:not(:last-child)]:border-r"
-                  >
-                    <TableCell className="py-2 px-4">{item.id}</TableCell>
-                    <TableCell className="py-2 px-4">{item.nome}</TableCell>
-                    <TableCell className="py-2 px-4">{item.email}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-        </div>
+        <Listagem posts={itens} />
         <div className="w-full max-w-sm mt-6">
           <Button href="/" className="w-full">
             Voltar para página inicial

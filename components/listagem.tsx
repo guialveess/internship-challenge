@@ -1,56 +1,39 @@
-'use client';
+import React from "react";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-
-type Post = {
+type Item = {
   id: number;
-  title: string;
-  body: string;
+  nome: string;
+  email: string;
 };
 
-const Listagem = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [pagina, setPagina] = useState(1);
-  const [loading, setLoading] = useState(false);
+type ListagemProps = {
+  posts: Item[];
+};
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      setLoading(true);
-      try {
-        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts?_page=${pagina}&_limit=5`);
-        setPosts(res.data);
-      } catch (error) {
-        console.error('Erro ao carregar os dados:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPosts();
-  }, [pagina]);
-
+const Listagem: React.FC<ListagemProps> = ({ posts }) => {
   return (
-    <div>
-      <h1>Lista de Posts</h1>
-      {loading ? (
-        <p>Carregando...</p>
-      ) : (
-        <>
-          <ul>
+    <div className="relative max-w-full overflow-auto rounded-md border bg-background">
+      <div className="overflow-x-auto">
+        <Table aria-label="Listagem de Itens">
+          <thead>
+            <tr>
+              <th className="py-2 px-4">ID</th>
+              <th className="py-2 px-4">Nome</th>
+              <th className="py-2 px-4">Email</th>
+            </tr>
+          </thead>
+          <TableBody>
             {posts.map((post) => (
-              <li key={post.id}>
-                <h2>{post.title}</h2>
-                <p>{post.body}</p>
-              </li>
+              <TableRow key={post.id} className="hover:bg-transparent [&>:not(:last-child)]:border-r">
+                <TableCell className="py-2 px-4">{post.id}</TableCell>
+                <TableCell className="py-2 px-4">{post.nome}</TableCell>
+                <TableCell className="py-2 px-4">{post.email}</TableCell>
+              </TableRow>
             ))}
-          </ul>
-          <button onClick={() => setPagina(pagina - 1)} disabled={pagina <= 1}>
-            Anterior
-          </button>
-          <button onClick={() => setPagina(pagina + 1)}>Próximo</button>
-        </>
-      )}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 };
