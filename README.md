@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Desafio Técnico - Página de Inscrições
 
-## Getting Started
+Este é um projeto desenvolvido como parte de um **desafio técnico**. A aplicação foi construída com o framework **Next.js** utilizando **API ROUTES** e tem como objetivo principal fornecer um formulário de inscrição e exibir as inscrições enviadas.
 
-First, run the development server:
+## Como Rodar o Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone o repositório para a sua máquina local:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    ```bash
+    git clone <URL_DO_REPOSITORIO>
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Instale as dependências:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    ```bash
+    npm install
+    # ou
+    yarn
+    # ou
+    pnpm install
+    ```
 
-## Learn More
+3. Inicie o servidor de desenvolvimento:
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    npm run dev
+    # ou
+    yarn dev
+    # ou
+    pnpm dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Acesse [http://localhost:3000](http://localhost:3000) no seu navegador para ver a aplicação em funcionamento.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Funcionalidades
 
-## Deploy on Vercel
+- **Formulário de Inscrição**: Um formulário para capturar nome e e-mail dos usuários.
+- **Listagem de Inscrições**: Visualização de todas as inscrições enviadas.
+- **Feedback do Usuário**: Exibe mensagens de sucesso ou erro ao enviar o formulário.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tecnologias Utilizadas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js**: Framework React para construção de aplicativos.
+- **TypeScript**: Para tipagem estática e maior segurança no código.
+- **Zod**: Biblioteca para validação de schemas.
+- **React Hook Form**: Para gerenciamento de formulários.
+- **Axios**: Para fazer requisições HTTP.
+- **Framer Motion**: Para animações no frontend.
+
+## Deploy
+
+A forma mais fácil de fazer o deploy do aplicativo Next.js é utilizando a plataforma [Vercel](https://vercel.com).
+
+Consulte a [documentação de deploy do Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para mais detalhes.
+
+## Contribuições
+
+Este é um projeto pessoal criado para um desafio técnico, e contribuições são bem-vindas. Se você tiver sugestões ou melhorias, fique à vontade para fazer um fork ou abrir uma issue.
