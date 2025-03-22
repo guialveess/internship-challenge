@@ -51,6 +51,7 @@ export default function ListagemPage() {
     <Container>
       <div className="flex flex-col justify-center items-center min-h-screen mx-auto max-w-lg">
         <Listagem posts={itens} />
+        
         <div className="w-full max-w-sm mt-6">
           <Button href="/" className="w-full">
             Voltar para página inicial
