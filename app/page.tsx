@@ -13,8 +13,8 @@ export default function Home() {
                 Bem-vindo a página de inscrições 👋
               </h2>
             </BlurFade>
-            <BlurFade delay={0.25 * 2} inView>
-              <span className="text-xl text-pretty tracking-tighter sm:text-3xl xl:text-4xl/none">
+            <BlurFade className="mt-6" delay={0.25 * 2} inView>
+              <span className="text-xl text-pretty tracking-tighter sm:text-3xl xl:text-4xl/none mt-8">
                 Você pode acessar o formulário clicando no link abaixo:
               </span>
             </BlurFade>
